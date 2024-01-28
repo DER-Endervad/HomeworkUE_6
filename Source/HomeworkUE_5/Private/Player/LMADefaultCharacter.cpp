@@ -126,14 +126,16 @@ void ALMADefaultCharacter::Sprint(float Value) {
 		}
 	}
 
-	if (Stamina > 0 && Value > 0 && BaF || RaL) {
+	if (Stamina > 0 && Value > 0 && (BaF || RaL)) {
 		Shift = true;
+		GetCharacterMovement()->MaxWalkSpeed = SpeedSprint;
 		Stamina = Stamina - (Value/2);
 		GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, FString::Printf(TEXT("Stamina = %f"), Stamina));
 	}
 
 	if (Value <= 0 || Stamina <= 0) {
 		Shift = false;
+		GetCharacterMovement()->MaxWalkSpeed = SpeedWalk;
 	}
 }
 

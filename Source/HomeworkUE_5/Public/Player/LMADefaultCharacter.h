@@ -55,7 +55,9 @@ protected:
 	bool BaF = false;
 	bool RaL = false;
 
+	UPROPERTY()
 	UWorld* world;
+
 	float STimeOld = 0.0f;
 	float STimeNow = 0.0f;
 
@@ -67,13 +69,16 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 private:
-	float YRotation = -20.0f;
+	float YRotation = -75.0f;
 
-	float ArmLength = 500.0f;
-	float ArmMin = 300.0f;
-	float ArmMax = 1000.0f;
+	float ArmLength = 1400.0f;
+	float ArmMin = 500.0f;
+	float ArmMax = 1500.0f;
 
-	float FOV = 60.0f;
+	float FOV = 55.0f;
+
+	float SpeedWalk = 300.0f;
+	float SpeedSprint = 600.0f;
 
 	void MoveForward(float Value);
 	void MoveRight(float Value);
